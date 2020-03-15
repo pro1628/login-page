@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Punjab Govenment Portal</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h1 align="center"><u>WELCOME</u></h1>
+  <form  class="needs-validation" novalidate>
+    <div class="form-group">
+      <label for="uname">Username:</label>
+      <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary" onclick="f()">Submit</button>
+  </form>
+</div>
+
+<script>
+// Disable form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Get the forms we want to add validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
+<script>
+	function f(){
+    var dept_name_list = ["Punjab_Sarkar", "Agriculture", "Animal Husbandry, Dairy Development and Fisheries", "Civil Aviation", "Cooperation",
+			"Defence Services Welfare", "School Education", "Elections", "Excise and Taxation", "Employment Generation and Training", "Finance", "Food, Civil Supplies and Consumer Affairs",
+			"Forest and Wild Life Preservation", "General Administration", "Governance Reforms & Public Grievances", "Social Justice, Empowerment and Minorities", "Health & Family Welfare",
+			"Home Affairs and Justice", "Housing and Urban Development", "Industries and Commerce", "Information and Public Relation", "Information Technology",
+			"Labour", "Legal and Legislative Affairs", "Local Government", "NRI Affairs"];
+	
+	var dept_pass_list = ["password"];
+	
+    var un = document.getElementById("uname").value;
+    var p = document.getElementById("pwd").value;
+    
+    var i,flag=0;
+    for(i=0;i<dept_name_list.length;i++)
+    {
+    	if(dept_name_list[i] == un)
+        {
+        	flag=1;
+            break;
+        }
+    }
+    if(flag == 0)
+    alert("Please fill the correct username");
+    
+    if(dept_pass_list[0] == p)
+    {
+    	flag = 2;
+    }
+    
+    if(flag != 2)
+    alert("Please fill correct Password");
+        
+}
+</script>
+</body>
+</html>
